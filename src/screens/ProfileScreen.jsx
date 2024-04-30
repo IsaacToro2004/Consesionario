@@ -1,11 +1,48 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { TextInput, Button, Text } from 'react-native-paper';
 
 const ProfileScreen = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const handleSaveProfile = () => {
+    // Aquí puedes implementar la lógica para guardar el perfil
+    console.log('Nombre:', name);
+    console.log('Correo electrónico:', email);
+    console.log('Teléfono:', phone);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Perfil del Usuario</Text>
-      <Text style={styles.text}>Bienvenido a tu perfil. Aquí puedes ver y actualizar tu información personal.</Text>
+      <Text style={styles.title}>Editar Perfil</Text>
+      <TextInput
+        label="Nombre"
+        value={name}
+        onChangeText={text => setName(text)}
+        style={styles.input}
+      />
+      <TextInput
+        label="Correo electrónico"
+        value={email}
+        onChangeText={text => setEmail(text)}
+        style={styles.input}
+      />
+      <TextInput
+        label="Teléfono"
+        value={phone}
+        onChangeText={text => setPhone(text)}
+        style={styles.input}
+      />
+      <Button
+        mode="contained"
+        onPress={handleSaveProfile}
+        style={styles.button}
+        color="#f4511e"
+      >
+        Guardar Perfil
+      </Button>
     </View>
   );
 }
@@ -16,14 +53,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#ffffff',
   },
   title: {
+    marginBottom: 20,
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: '#333333',
   },
-  text: {
-    fontSize: 18,
+  input: {
+    marginBottom: 20,
+    width: '100%',
+  },
+  button: {
+    width: '100%',
   },
 });
 

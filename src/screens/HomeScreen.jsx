@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import { Card, Title, Paragraph } from 'react-native-paper';
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Title style={styles.title}>¡Bienvenido al Concesionario de Autos!</Title>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Title style={styles.cardTitle}>Últimos Modelos</Title>
-          <Paragraph style={styles.cardText}>Explora nuestra colección de los últimos modelos de automóviles.</Paragraph>
-          <Button title="Ver detalles del auto" onPress={() => navigation.navigate('CarDetails')} />
-        </Card.Content>
-      </Card>
+      <Text style={styles.title}>¡Bienvenido al Concesionario Autos Ya!</Text>
+      <Button
+        title="Ver Inventario"
+        onPress={() => navigation.navigate('Inventory')}
+        color="#f4511e" // Color de botón naranja
+      />
+      <Button
+        title="Ver Perfil"
+        onPress={() => navigation.navigate('Profile')}
+        color="#f4511e" // Color de botón naranja
+      />
     </View>
   );
 }
@@ -23,24 +25,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#ffffff', // Color de fondo blanco
   },
   title: {
     marginBottom: 20,
-    textAlign: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-  },
-  card: {
-    width: '100%',
-    padding: 10,
-    marginBottom: 20,
-  },
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  cardText: {
-    marginBottom: 10,
+    color: '#333333', // Color de texto oscuro
   },
 });
 

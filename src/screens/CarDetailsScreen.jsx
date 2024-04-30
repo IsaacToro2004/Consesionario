@@ -1,21 +1,17 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { Card, Title } from 'react-native-paper';
+import { View, Text, StyleSheet } from 'react-native';
 
-const CarDetailsScreen = ({ navigation }) => {
+const CarDetailsScreen = ({ route }) => {
+  const { vehicle } = route.params;
+
   return (
     <View style={styles.container}>
-      <Title style={styles.title}>Detalles del Automóvil</Title>
-      <Card style={styles.card}>
-        <Card.Content>
-          <Text>Marca: Toyota</Text>
-          <Text>Modelo: Toyota Prado 2.8 Tx-l</Text>
-          <Text>Año: 2024</Text>
-          <Text>Color: Blanco</Text>
-          <Text>Precio: $25,000 USD</Text>
-        </Card.Content>
-      </Card>
-      <Button title="Volver a la página de inicio" onPress={() => navigation.navigate('Home')} />
+      <Text style={styles.title}>Detalles del Automóvil</Text>
+      <Text style={styles.text}>Marca: {vehicle.brand}</Text>
+      <Text style={styles.text}>Modelo: {vehicle.model}</Text>
+      <Text style={styles.text}>Año: {vehicle.year}</Text>
+      <Text style={styles.text}>Color: {vehicle.color}</Text>
+      <Text style={styles.text}>Precio: ${vehicle.price}</Text>
     </View>
   );
 }
@@ -26,16 +22,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#ffffff', // Color de fondo blanco
   },
   title: {
+    marginBottom: 20,
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: '#333333', // Color de texto oscuro
   },
-  card: {
-    width: '100%',
-    padding: 10,
-    marginBottom: 20,
+  text: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: '#666666', // Color de texto gris
   },
 });
 

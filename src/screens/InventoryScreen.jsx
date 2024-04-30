@@ -1,11 +1,59 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-const InventoryScreen = () => {
+const InventoryScreen = ({ navigation }) => {
+  const vehicles = [
+    {
+      id: 1,
+      brand: 'Toyota',
+      model: 'Corolla',
+      year: 2023,
+      color: 'Blanco',
+      price: 25000,
+    },
+    {
+      id: 2,
+      brand: 'Honda',
+      model: 'Civic',
+      year: 2022,
+      color: 'Gris',
+      price: 23000,
+    },
+    {
+      id: 3,
+      brand: 'Ford',
+      model: 'Mustang',
+      year: 2021,
+      color: 'Rojo',
+      price: 35000,
+    },
+    {
+      id: 4,
+      brand: 'Chevrolet',
+      model: 'Camaro',
+      year: 2020,
+      color: 'Negro',
+      price: 40000,
+    },
+  ];
+
+  const handleViewDetails = (vehicle) => {
+    navigation.navigate('CarDetails', { vehicle });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Inventario de Autos</Text>
-      <Text style={styles.text}>Ver todos los autos disponibles en el concesionario.</Text>
+      {vehicles.map(vehicle => (
+        <View key={vehicle.id} style={styles.vehicleContainer}>
+          <Text>{vehicle.brand} {vehicle.model}</Text>
+          <Button
+            title="Ver detalles"
+            onPress={() => handleViewDetails(vehicle)}
+            color="#f4511e"
+          />
+        </View>
+      ))}
     </View>
   );
 }
@@ -13,17 +61,18 @@ const InventoryScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
+    backgroundColor: '#ffffff',
   },
   title: {
+    marginBottom: 20,
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: '#333333',
+    textAlign: 'center',
   },
-  text: {
-    fontSize: 18,
+  vehicleContainer: {
+    marginBottom: 20,
   },
 });
 
