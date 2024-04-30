@@ -9,10 +9,10 @@ const CarDetailsScreen = ({ navigation }) => {
       <Card style={styles.card}>
         <Card.Content>
           <Text>Marca: Toyota</Text>
-          <Text>Modelo: Corolla</Text>
-          <Text>Año: 2023</Text>
+          <Text>Modelo: Toyota Prado 2.8 Tx-l</Text>
+          <Text>Año: 2024</Text>
           <Text>Color: Blanco</Text>
-          <Text>Precio: $25,000</Text>
+          <Text>Precio: $25,000 USD</Text>
         </Card.Content>
       </Card>
       <Button title="Volver a la página de inicio" onPress={() => navigation.navigate('Home')} />
